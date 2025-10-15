@@ -74,6 +74,29 @@ if (process.env.NODE_ENV === 'development') {
   }));
 }
 
+// Welcome route
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Welcome to SpiceWyn API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      auth: '/api/auth',
+      products: '/api/products',
+      categories: '/api/categories',
+      orders: '/api/orders',
+      admin: '/api/admin',
+      coupons: '/api/coupons',
+      tickets: '/api/tickets',
+      reviews: '/api/reviews',
+      wishlist: '/api/wishlist',
+      banners: '/api/banners'
+    },
+    docs: 'https://github.com/your-repo/spicewyn'
+  });
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({
